@@ -23,3 +23,8 @@ export const TargetButtons = [
   ButtonType.Mint,
   ButtonType.Link,
 ];
+
+export const UniqueButtons = [
+  ButtonType.NextFrame,
+  ButtonType.PreviousFrame,
+];

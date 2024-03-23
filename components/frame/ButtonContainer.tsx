@@ -18,6 +18,7 @@ export function ButtonContainer() {
           onMoveRight={() => setButtons(b => shiftRight([...b], i))}
           canMoveRight={i !== (buttons.length - 1)}
           onDelete={() => setButtons(b => b.filter((button, idx) => idx !== i))}
+          existingButtonTypes={buttons.map(b => b.type)}
           onSave={(data) => {
             setButtons(b => b.map(
               (button, idx) => i !== idx ? button : data)
@@ -32,6 +33,7 @@ export function ButtonContainer() {
             label: "",
             type: ButtonType.Add,
           }}
+          existingButtonTypes={buttons.map(b => b.type)}
           onSave={(data) => setButtons(b => [...b, data])}
         />
       )}

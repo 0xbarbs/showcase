@@ -8,7 +8,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Buttons, TargetButtons } from "@/components/frame/constants";
+import { Buttons, TargetButtons, UniqueButtons } from "@/components/frame/constants";
 import { ButtonData, ButtonType } from "@/types/frame";
 
 export function FrameButton({
@@ -19,6 +19,7 @@ export function FrameButton({
   onMoveRight,
   canMoveRight = false,
   onDelete,
+  existingButtonTypes = [],
 }: {
   data: ButtonData;
   onSave: (data: ButtonData) => void;
@@ -27,6 +28,7 @@ export function FrameButton({
   onMoveRight?: () => void;
   canMoveRight?: boolean;
   onDelete?: () => void;
+  existingButtonTypes?: ButtonType[];
 }) {
   const [label, setLabel] = useState<string>(data.label);
   const [type, setType] = useState<ButtonType>(data.type);
@@ -81,7 +83,7 @@ export function FrameButton({
                   <SelectValue placeholder="Select type" />
                 </SelectTrigger>
                 <SelectContent>
-                  {Buttons.map((button) => (
+                  {Buttons.filter(b => !(UniqueButtons.includes(b.type) && existingButtonTypes.includes(b.type))).map((button) => (
                     <SelectItem value={button.type}>{button.label}</SelectItem>
                   ))}
                 </SelectContent>
