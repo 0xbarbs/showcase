@@ -14,16 +14,16 @@ import { ButtonData, ButtonType } from "@/types/frame";
 export function FrameButton({
   data,
   onSave,
-  moveLeft,
+  onMoveLeft,
   canMoveLeft = false,
-  moveRight,
+  onMoveRight,
   canMoveRight = false,
 }: {
   data: ButtonData;
   onSave: (data: ButtonData) => void;
-  moveLeft?: () => void;
+  onMoveLeft?: () => void;
   canMoveLeft?: boolean;
-  moveRight?: () => void;
+  onMoveRight?: () => void;
   canMoveRight?: boolean;
 }) {
   const [label, setLabel] = useState<string>(data.label);
@@ -107,12 +107,12 @@ export function FrameButton({
                     </Button>
                   </PopoverClose>
                   <PopoverClose asChild>
-                    <Button onClick={moveLeft} disabled={!canMoveLeft} className="w-6 h-8 mr-1" variant="outline" size="icon">
+                    <Button onClick={onMoveLeft} disabled={!canMoveLeft} className="w-6 h-8 mr-1" variant="outline" size="icon">
                       <ChevronLeft className="h-4 w-4" />
                     </Button>
                   </PopoverClose>
                   <PopoverClose asChild>
-                    <Button onClick={moveRight} disabled={!canMoveRight} className="w-6 h-8 mr-2" variant="outline" size="icon">
+                    <Button onClick={onMoveRight} disabled={!canMoveRight} className="w-6 h-8 mr-2" variant="outline" size="icon">
                       <ChevronRight className="h-4 w-4" />
                     </Button>
                   </PopoverClose>

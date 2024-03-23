@@ -13,9 +13,9 @@ export function ButtonContainer() {
         <FrameButton
           key={i}
           data={buttonData}
-          moveLeft={() => setButtons(b => shiftLeft([...b], i))}
+          onMoveLeft={() => setButtons(b => shiftLeft([...b], i))}
           canMoveLeft={i > 0}
-          moveRight={() => setButtons(b => shiftRight([...b], i))}
+          onMoveRight={() => setButtons(b => shiftRight([...b], i))}
           canMoveRight={i !== (buttons.length - 1)}
           onSave={(data) => {
             setButtons(b => b.map(
