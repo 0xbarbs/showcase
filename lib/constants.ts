@@ -4,3 +4,5 @@ export const VALID_IMAGE_MIME_TYPES = [
   "image/jpg",
   "image/png",
 ];
+
+export const MAX_FRAME_COUNT = 10;

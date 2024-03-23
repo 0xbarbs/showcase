@@ -3,6 +3,7 @@ import { HiLightBulb } from "react-icons/hi";
 import { FaSquareCaretLeft, FaSquareCaretRight, FaSquarePlus } from "react-icons/fa6";
 
 import { ButtonType, FrameData } from "@/types/frame";
+import { MAX_FRAME_COUNT } from "@/lib/constants";
 
 export function FrameControls({ isLastFrame, activeFrame, setActiveFrame, activeFrameData }: {
   isLastFrame: boolean;
@@ -27,7 +28,7 @@ export function FrameControls({ isLastFrame, activeFrame, setActiveFrame, active
         </button>
       )}
 
-      {activeFrameData?.image && (
+      {activeFrameData?.image && activeFrame < (MAX_FRAME_COUNT - 1) && (
         <div
           style={{
             position: "absolute",
