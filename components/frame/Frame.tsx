@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Form } from "@/components/ui/form";
 import { FrameData } from "@/types/frame";
 import { MAX_FILE_SIZE, VALID_IMAGE_MIME_TYPES } from "@/lib/constants";
-import { FrameImage } from "@/components/frame/FrameImage";
+import { ButtonContainer, FrameImage } from "@/components/frame";
 
 export function Frame({
   data,
@@ -30,6 +30,7 @@ export function Frame({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <FrameImage form={form} />
+        <ButtonContainer />
       </form>
     </Form>
   )

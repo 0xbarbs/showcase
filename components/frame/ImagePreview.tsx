@@ -12,7 +12,7 @@ export function ImagePreview({
   return (
     <article
       onClick={onClick}
-      className="border bg-white border-slate-400 flex flex-col justify-center items-center"
+      className="border bg-white border-slate-300 flex flex-col justify-center items-center rounded-t-lg overflow-hidden"
       style={{
         aspectRatio: "1.91 / 1",
         width: 600,
