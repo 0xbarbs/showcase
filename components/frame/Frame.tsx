@@ -17,14 +17,12 @@ export function Frame() {
         {frameCount > 0 ? `Frame ${activeFrame + 1}` : "Frame 1"}
       </h1>
 
-
       <FrameControls
         activeFrame={activeFrame}
         setActiveFrame={setActiveFrame}
         activeFrameData={activeFrameData}
         isLastFrame={activeFrame === frameCount - 1}
       />
-
       <FrameImage
         image={activeFrameData?.image}
         onImageChanged={(image) => {
