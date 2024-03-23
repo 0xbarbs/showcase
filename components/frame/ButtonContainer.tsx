@@ -17,6 +17,7 @@ export function ButtonContainer() {
           canMoveLeft={i > 0}
           onMoveRight={() => setButtons(b => shiftRight([...b], i))}
           canMoveRight={i !== (buttons.length - 1)}
+          onDelete={() => setButtons(b => b.filter((button, idx) => idx !== i))}
           onSave={(data) => {
             setButtons(b => b.map(
               (button, idx) => i !== idx ? button : data)

@@ -18,6 +18,7 @@ export function FrameButton({
   canMoveLeft = false,
   onMoveRight,
   canMoveRight = false,
+  onDelete,
 }: {
   data: ButtonData;
   onSave: (data: ButtonData) => void;
@@ -25,6 +26,7 @@ export function FrameButton({
   canMoveLeft?: boolean;
   onMoveRight?: () => void;
   canMoveRight?: boolean;
+  onDelete?: () => void;
 }) {
   const [label, setLabel] = useState<string>(data.label);
   const [type, setType] = useState<ButtonType>(data.type);
@@ -102,17 +104,34 @@ export function FrameButton({
               {!isAddButton && (
                 <>
                   <PopoverClose asChild>
-                    <Button className="w-8 h-8 mr-2" variant="outline" size="icon">
+                    <Button
+                      size="icon"
+                      variant="outline"
+                      className="w-8 h-8 mr-2"
+                      onClick={onDelete}
+                    >
                       <Trash2 color="red" className="h-4 w-4" />
                     </Button>
                   </PopoverClose>
                   <PopoverClose asChild>
-                    <Button onClick={onMoveLeft} disabled={!canMoveLeft} className="w-6 h-8 mr-1" variant="outline" size="icon">
+                    <Button
+                      size="icon"
+                      variant="outline"
+                      onClick={onMoveLeft}
+                      disabled={!canMoveLeft}
+                      className="w-6 h-8 mr-1"
+                    >
                       <ChevronLeft className="h-4 w-4" />
                     </Button>
                   </PopoverClose>
                   <PopoverClose asChild>
-                    <Button onClick={onMoveRight} disabled={!canMoveRight} className="w-6 h-8 mr-2" variant="outline" size="icon">
+                    <Button
+                      size="icon"
+                      variant="outline"
+                      onClick={onMoveRight}
+                      disabled={!canMoveRight}
+                      className="w-6 h-8 mr-2"
+                    >
                       <ChevronRight className="h-4 w-4" />
                     </Button>
                   </PopoverClose>
