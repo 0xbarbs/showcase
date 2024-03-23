@@ -1,7 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
+import { HiLightBulb } from "react-icons/hi";
 import { FaSquareCaretLeft, FaSquareCaretRight, FaSquarePlus } from "react-icons/fa6";
 
-import { FrameData } from "@/types/frame";
+import { ButtonType, FrameData } from "@/types/frame";
 
 export function FrameControls({ isLastFrame, activeFrame, setActiveFrame, activeFrameData }: {
   isLastFrame: boolean;
@@ -9,6 +10,8 @@ export function FrameControls({ isLastFrame, activeFrame, setActiveFrame, active
   setActiveFrame: Dispatch<SetStateAction<number>>;
   activeFrameData: FrameData | undefined;
 }) {
+  const hasNextFrameButton = activeFrameData?.buttons?.some(b => b.type === ButtonType.NextFrame);
+
   return (
     <>
       {activeFrame > 0 && (
@@ -25,20 +28,30 @@ export function FrameControls({ isLastFrame, activeFrame, setActiveFrame, active
       )}
 
       {activeFrameData?.image && (
-        <button
-          onClick={() => setActiveFrame(a => a + 1)}
+        <div
           style={{
             position: "absolute",
             right: -64,
             top: '40%',
           }}
         >
-          {isLastFrame ? (
-            <FaSquarePlus size={40} />
+          {hasNextFrameButton ? (
+            <button onClick={() => setActiveFrame(a => a + 1)}>
+              {isLastFrame ? (
+                <FaSquarePlus size={40}/>
+              ) : (
+                <FaSquareCaretRight size={40}/>
+              )}
+            </button>
           ) : (
-            <FaSquareCaretRight size={40} />
+            <div className="absolute -left-10 -mt-2 w-44 text-sm text-slate-500 flex flex-col items-center">
+              <h4 className="flex items-center font-bold mb-1">
+                <HiLightBulb size={24} className="mr-1" /> TIP
+              </h4>
+              <p className="text-center">Create a "Next frame" button to add a new frame!</p>
+            </div>
           )}
-        </button>
+        </div>
       )}
     </>
   )
