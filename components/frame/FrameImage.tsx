@@ -1,19 +1,23 @@
 import { Input } from "@/components/ui/input";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ImagePreview } from "@/components/frame/ImagePreview";
 import { useToast } from "@/components/ui/use-toast";
 import { MAX_FILE_SIZE, VALID_IMAGE_MIME_TYPES } from "@/lib/constants";
 
-export function FrameImage() {
+export function FrameImage({
+  image,
+  onImageChanged,
+}: {
+  image: File | undefined;
+  onImageChanged: (image: File) => void;
+}) {
   const imageInput = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
-
-  const [selectedImage, setSelectedImage] = useState<any | null>(null);
 
   return (
     <>
       <ImagePreview
-        image={selectedImage}
+        image={image}
         onClick={() => imageInput.current?.click()}
       />
       <Input
@@ -45,7 +49,7 @@ export function FrameImage() {
               return;
             }
 
-            setSelectedImage(file);
+            onImageChanged(file);
           }
         }}
       />

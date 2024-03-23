@@ -1,7 +1,5 @@
-import PersistentFile from "formidable/PersistentFile";
-
 export interface FrameData {
-  image: PersistentFile;
+  image: File;
 }
 
 export enum ButtonType {
