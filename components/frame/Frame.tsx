@@ -43,8 +43,20 @@ export function Frame() {
               image,
             }
           }));
-      }}/>
-      <ButtonContainer/>
+        }}
+      />
+      <ButtonContainer
+        buttons={frameData[activeFrame]?.buttons || []}
+        onButtonsChanged={(buttons) => {
+          setFrameData(f => ({
+            ...f,
+            [activeFrame]: {
+              ...f[activeFrame],
+              buttons,
+            }
+          }));
+        }}
+      />
     </div>
   )
 }

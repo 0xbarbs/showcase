@@ -1,5 +1,6 @@
 export interface FrameData {
   image: File;
+  buttons: ButtonData[];
 }
 
 export enum ButtonType {
