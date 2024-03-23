@@ -8,17 +8,21 @@ export function Frame() {
   const [frameData, setFrameData] = useState<Record<number, FrameData>>({});
   const [activeFrame, setActiveFrame] = useState(0);
 
+  const frameCount = Object.keys(frameData).length;
   const activeFrameData = frameData[activeFrame];
 
   return (
     <div className="flex flex-col relative">
-      <p>{activeFrame}</p>
+      <h1 className="text-center mb-2 font-bold">
+        {frameCount > 0 ? `Frame ${activeFrame + 1}` : "Frame 1"}
+      </h1>
+
 
       <FrameControls
         activeFrame={activeFrame}
         setActiveFrame={setActiveFrame}
         activeFrameData={activeFrameData}
-        isLastFrame={activeFrame === Object.keys(frameData).length - 1}
+        isLastFrame={activeFrame === frameCount - 1}
       />
 
       <FrameImage
