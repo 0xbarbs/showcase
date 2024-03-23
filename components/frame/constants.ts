@@ -1,6 +1,6 @@
-import { ButtonType } from "@/types/frame";
+import { ButtonData, ButtonType } from "@/types/frame";
 
-export const Buttons = [
+export const Buttons: ButtonData[] = [
   {
     type: ButtonType.Mint,
     label: "Mint",

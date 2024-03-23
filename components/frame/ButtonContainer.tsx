@@ -1,8 +1,7 @@
-import { useState } from "react";
-
 import { FrameButton } from "@/components/frame";
 import { ButtonData, ButtonType } from "@/types/frame";
 import { shiftLeft, shiftRight } from "@/lib/utils";
+import { Buttons, UniqueButtons } from "@/components/frame/constants";
 
 export function ButtonContainer({
   buttons,
@@ -22,7 +21,10 @@ export function ButtonContainer({
           onMoveRight={() => onButtonsChanged(shiftRight([...buttons], i))}
           canMoveRight={i !== (buttons.length - 1)}
           onDelete={() => onButtonsChanged(buttons.filter((button, idx) => idx !== i))}
-          existingButtonTypes={buttons.map(b => b.type)}
+          buttonTypes={Buttons.filter(b =>
+            !UniqueButtons.includes(b.type)
+              || !buttons.some(b2 => b2.type === b.type && b2.type !== buttonData.type)
+          )}
           onSave={(data) => {
             onButtonsChanged(buttons.map(
               (button, idx) => i !== idx ? button : data)
@@ -37,7 +39,9 @@ export function ButtonContainer({
             label: "",
             type: ButtonType.Add,
           }}
-          existingButtonTypes={buttons.map(b => b.type)}
+          buttonTypes={Buttons.filter(b =>
+            !UniqueButtons.includes(b.type) || !buttons.some(b2 => b2.type === b.type)
+          )}
           onSave={(data) => onButtonsChanged([...buttons, data])}
         />
       )}

@@ -14,21 +14,21 @@ import { ButtonData, ButtonType } from "@/types/frame";
 export function FrameButton({
   data,
   onSave,
+  buttonTypes = [],
   onMoveLeft,
   canMoveLeft = false,
   onMoveRight,
   canMoveRight = false,
   onDelete,
-  existingButtonTypes = [],
 }: {
   data: ButtonData;
   onSave: (data: ButtonData) => void;
+  buttonTypes: ButtonData[];
   onMoveLeft?: () => void;
   canMoveLeft?: boolean;
   onMoveRight?: () => void;
   canMoveRight?: boolean;
   onDelete?: () => void;
-  existingButtonTypes?: ButtonType[];
 }) {
   const [label, setLabel] = useState<string>(data.label);
   const [type, setType] = useState<ButtonType>(data.type);
@@ -83,7 +83,7 @@ export function FrameButton({
                   <SelectValue placeholder="Select type" />
                 </SelectTrigger>
                 <SelectContent>
-                  {Buttons.filter(b => !(UniqueButtons.includes(b.type) && existingButtonTypes.includes(b.type))).map((button) => (
+                  {buttonTypes.map((button) => (
                     <SelectItem value={button.type}>{button.label}</SelectItem>
                   ))}
                 </SelectContent>
