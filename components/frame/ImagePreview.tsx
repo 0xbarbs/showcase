@@ -16,6 +16,7 @@ export function ImagePreview({
       style={{
         aspectRatio: "1.91 / 1",
         width: 600,
+        maxWidth: '95vw',
       }}
     >
       {image ? (
