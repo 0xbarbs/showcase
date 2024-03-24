@@ -19,14 +19,14 @@ export const POST = async (req: NextRequest) => {
       })
     }
 
-    const name = `images/${i}.png`
+    const name = `.gitshowcase/images/${i}.png`
     zip.addFile(name, buffer);
 
     // @ts-ignore
     frames[i].image = name;
   }
 
-  zip.addFile("config.json", Buffer.from(JSON.stringify(frames, null, 2), "utf8"));
+  zip.addFile(".gitshowcase/config.json", Buffer.from(JSON.stringify(frames, null, 2), "utf8"));
 
   return new NextResponse(zip.toBuffer(), {
     headers: {

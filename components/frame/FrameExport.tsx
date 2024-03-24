@@ -39,7 +39,7 @@ export function FrameExport({
 
       {exported && (
         <p className="mt-4 max-w-[500px] text-center self-center text-sm">
-          Frames exported! Extract the contents into a <span className="font-bold">.gitshowcase</span> directory located at the root of your repository. Don't forget to commit and push.
+          Frames exported! Extract the contents into the root of your repository. Don't forget to commit and push.
         </p>
       )}
     </div>
