@@ -47,8 +47,8 @@ app.frame('/:user/:repo/:branch', async (c) => {
     return ErrorFrameHandler(c);
   }
 
-  const test = await axios.get(`${url}/config.json`);
-  const frames = test.data as FrameData[];
+  const response = await axios.get(`${url}/.gitshowcase/config.json`);
+  const frames = response.data as FrameData[];
 
   return c.res({
     image: `${url}/${frames[frameIndex].image}`,
