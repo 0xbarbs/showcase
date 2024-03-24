@@ -1,119 +1,34 @@
-import { getFrameMetadata } from 'frog/next'
-import type { Metadata } from 'next'
 import Image from 'next/image'
-
-import styles from './page.module.css'
-
-export async function generateMetadata(): Promise<Metadata> {
-  const frameTags = await getFrameMetadata(
-    `${process.env.VERCEL_URL || 'http://localhost:3000'}/api`,
-  )
-  return {
-    other: frameTags,
-  }
-}
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>app/page.tsx</code>
-          </p>
-          <p>
-            Head to{' '}
-            <a
-              href="/api/dev"
-              style={{ display: 'inline', fontWeight: 'semibold' }}
-            >
-              <code className={styles.code}>localhost:3000/api</code>
-            </a>{' '}
-            for your frame endpoint.
-          </p>
-        </div>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <main className="w-screen h-screen flex justify-center items-center flex-col">
+      <h1 className="text-5xl font-bold">Git Showcase</h1>
+      <p className="text-center max-w-[700px] mt-4 text-lg">
+        A no code solution to quickly turn any public GitHub repository into an interactive frame, allowing creators to
+        showcase the key features of their project with ease.
+      </p>
+      <p className="mt-4 text-lg font-bold">It's as easy as 1-2-3.</p>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <section className="mt-16 pl-14 relative">
+        <div className="absolute left-0 bg-green-800 text-white py-2 px-4 rounded-full text-xl font-bold">1</div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+        <h2 className="mt-1 text-2xl w-[600px] font-bold">Create your frame</h2>
+        <p className="text-lg mt-2">Use our simple interactive frame builder to create your show case.</p>
+      </section>
+      <section className="mt-16 pl-14 relative">
+        <div className="absolute left-0 bg-green-800 text-white py-2 px-4 rounded-full text-xl font-bold">2</div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+        <h2 className="mt-1 text-2xl w-[600px] font-bold">Commit and push</h2>
+        <p className="text-lg mt-2 max-w-[600px]">Download your frame export and unzip the contents into the root of
+          your repository. Commit and push the new directory.</p>
+      </section>
+      <section className="mt-12 pl-14 relative">
+        <div className="absolute left-0 bg-green-800 text-white py-2 px-4 rounded-full text-xl font-bold">2</div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        <h2 className="mt-1 text-2xl w-[600px] font-bold">Generate your frame link</h2>
+        <p className="text-lg mt-2 max-w-[600px]">That's it! Paste your GitHub repository link below to create your shareable showcase frame link.</p>
+      </section>
     </main>
   )
 }
