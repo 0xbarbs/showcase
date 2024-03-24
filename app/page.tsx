@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { IoBuild } from "react-icons/io5";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 import { LinkGenerator } from "@/components/home/LinkGenerator";
 
 export default function Home() {
