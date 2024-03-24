@@ -1,0 +1,62 @@
+[
+  {
+    "buttons": [
+      {
+        "type": "next-frame",
+        "label": "Features →",
+        "target": ""
+      },
+      {
+        "type": "link",
+        "label": "GitHub",
+        "target": "https://github.com/0xbarbs/showcase"
+      },
+      {
+        "type": "link",
+        "label": "Give it a try!",
+        "target": "https://gitshowcase.barbs.dev/"
+      }
+    ],
+    "image": ".gitshowcase/images/0.png"
+  },
+  {
+    "buttons": [
+      {
+        "type": "previous-frame",
+        "label": "← Back",
+        "target": ""
+      },
+      {
+        "type": "next-frame",
+        "label": "Next →",
+        "target": ""
+      }
+    ],
+    "image": ".gitshowcase/images/1.png"
+  },
+  {
+    "buttons": [
+      {
+        "type": "previous-frame",
+        "label": "← Back",
+        "target": ""
+      },
+      {
+        "type": "next-frame",
+        "label": "Next →",
+        "target": ""
+      }
+    ],
+    "image": ".gitshowcase/images/2.png"
+  },
+  {
+    "buttons": [
+      {
+        "type": "previous-frame",
+        "label": "← Back",
+        "target": ""
+      }
+    ],
+    "image": ".gitshowcase/images/3.png"
+  }
+]
