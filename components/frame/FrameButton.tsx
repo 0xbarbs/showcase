@@ -83,8 +83,8 @@ export function FrameButton({
                   <SelectValue placeholder="Select type" />
                 </SelectTrigger>
                 <SelectContent>
-                  {buttonTypes.map((button) => (
-                    <SelectItem value={button.type}>{button.label}</SelectItem>
+                  {buttonTypes.map((button, i) => (
+                    <SelectItem key={i} value={button.type}>{button.label}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
