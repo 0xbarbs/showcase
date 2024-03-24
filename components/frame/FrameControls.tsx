@@ -21,7 +21,7 @@ export function FrameControls({ isLastFrame, activeFrame, setActiveFrame, active
           style={{
             position: "absolute",
             left: -64,
-            top: '40%',
+            top: '36%',
           }}
         >
           <FaSquareCaretLeft size={40}/>
@@ -33,7 +33,7 @@ export function FrameControls({ isLastFrame, activeFrame, setActiveFrame, active
           style={{
             position: "absolute",
             right: -64,
-            top: '40%',
+            top: '36%',
           }}
         >
           {hasNextFrameButton ? (
@@ -45,7 +45,7 @@ export function FrameControls({ isLastFrame, activeFrame, setActiveFrame, active
               )}
             </button>
           ) : (
-            <div className="absolute -left-16 -mt-2 w-44 text-sm text-slate-500 flex flex-col items-center">
+            <div className="absolute -left-16 -mt-4 w-44 text-sm text-slate-500 flex flex-col items-center">
               <h4 className="flex items-center font-bold mb-1">
                 <HiLightBulb size={24} className="mr-1" /> TIP
               </h4>

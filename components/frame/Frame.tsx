@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ButtonContainer, FrameImage } from "@/components/frame";
 import { FrameData } from "@/types/frame";
 import { FrameControls } from "@/components/frame/FrameControls";
+import { FrameExport } from "@/components/frame/FrameExport";
 
 export function Frame() {
   const [frameData, setFrameData] = useState<Record<number, FrameData>>({});
@@ -47,6 +48,10 @@ export function Frame() {
           }));
         }}
       />
+
+      {frameCount > 0 && (
+        <FrameExport frameData={frameData} />
+      )}
     </div>
   )
 }
