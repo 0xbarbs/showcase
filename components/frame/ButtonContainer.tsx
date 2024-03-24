@@ -11,7 +11,7 @@ export function ButtonContainer({
   onButtonsChanged: (buttons: ButtonData[]) => void;
 }) {
   return (
-    <div className="flex bg-white p-4 border-rad rounded-b-lg border border-slate-300 border-t-0">
+    <div className="flex flex-wrap bg-white p-4 border-rad rounded-b-lg border border-slate-300 border-t-0">
       {buttons.map((buttonData, i) => (
         <FrameButton
           key={i}

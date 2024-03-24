@@ -55,7 +55,7 @@ export function FrameButton({
   return (
     <Popover onOpenChange={onOpenChange}>
       <PopoverTrigger asChild>
-        <Button variant={isAddButton ? "default" : "secondary"} className="flex-1 ms-2">
+        <Button variant={isAddButton ? "default" : "secondary"} className="flex-1 ms-2 basis-2/4 mt-2 md:mt-0 md:basis-1">
           {isAddButton ? (
             <>
               <FaPlus className="mr-1" />

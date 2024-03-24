@@ -52,6 +52,8 @@ export function Frame() {
       {frameCount > 0 && (
         <FrameExport frameData={frameData} />
       )}
+
+      <p className="w-full text-sm text-slate-400 text-center mt-6 md:hidden">Note: Frame builder on mobiles is still a WIP.</p>
     </div>
   )
 }
