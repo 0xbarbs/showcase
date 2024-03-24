@@ -68,8 +68,14 @@ const parseFormData = async (req: Request) => {
             frames[frameIndex].buttons[buttonIndex] = {} as ButtonData;
           }
 
-          // @ts-ignore
-          frames[frameIndex].buttons[buttonIndex][buttonField] = value;
+          if (buttonField === "label") {
+            frames[frameIndex].buttons[buttonIndex][buttonField] = (value as string)
+              .replace("->", "→")
+              .replace("<-", "←");
+          } else {
+            // @ts-ignore
+            frames[frameIndex].buttons[buttonIndex][buttonField] = value;
+          }
       }
     }
   }
