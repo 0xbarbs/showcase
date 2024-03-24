@@ -19,7 +19,7 @@ export default function Home() {
         <h2 className="mt-1 text-2xl w-[600px] font-bold">Create your frame</h2>
         <p className="text-lg mt-2">Use our simple interactive frame builder to create your showcase.</p>
 
-        <Link href="/create">
+        <Link href="/create" target="_blank" rel="noopener">
           <Button className="mt-4"><IoBuild size={18} className="mr-2" /> Open Frame Builder</Button>
         </Link>
       </section>
