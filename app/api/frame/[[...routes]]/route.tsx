@@ -36,18 +36,16 @@ const getRawBaseUrl = (user: string, repo: string, branch: string) => {
   return `https://raw.githubusercontent.com/${user}/${repo}/${branch}/.gitshowcase`;
 }
 
-app.frame('/', async (c) => {
+app.frame('/:user/:repo/:branch', async (c) => {
   const frameIndex = parseInt(c.buttonValue || "0");
-  const user = c.req.query("user");
-  const repo = c.req.query("repo");
-  const branch = c.req.query("branch");
-  const url = getRawBaseUrl(user!, repo!, branch!); // todo: validate and show error
+  const user = c.req.param("user");
+  const repo = c.req.param("repo");
+  const branch = c.req.param("branch");
+  const url = getRawBaseUrl(user!, repo!, branch!);
 
   if (!user || !repo || !branch) {
     return ErrorFrameHandler(c);
   }
-
-  console.log({ user, repo, branch });
 
   const test = await axios.get(`${url}/config.json`);
   const frames = test.data as FrameData[];
