@@ -33,7 +33,7 @@ const app = new Frog({
 })
 
 const getRawBaseUrl = (user: string, repo: string, branch: string) => {
-  return `https://raw.githubusercontent.com/${user}/${repo}/${branch}/.gitshowcase`;
+  return `https://raw.githubusercontent.com/${user}/${repo}/${branch}`;
 }
 
 app.frame('/:user/:repo/:branch', async (c) => {
