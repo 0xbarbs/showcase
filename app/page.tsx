@@ -5,7 +5,7 @@ import { LinkGenerator } from "@/components/home/LinkGenerator";
 
 export default function Home() {
   return (
-    <main className="min-w-screen min-h-screen flex justify-center items-center flex-col py-32 px-4">
+    <main className="min-w-screen min-h-screen flex justify-center items-center flex-col py-16 sm:py-32 px-4">
       <h1 className="text-5xl font-bold">Git Showcase</h1>
       <p className="text-center max-w-[700px] mt-4 text-lg">
         A no code solution to quickly turn any public GitHub repository into an interactive frame, allowing creators to
