@@ -22,3 +22,12 @@ export function shiftRight(arr: Array<any>, index: number) {
   }
   return arr;
 }
+
+export const isValidUrl = (url: string) => {
+  try {
+    new URL(url);
+    return true;
+  } catch (err) {
+    return false;
+  }
+}

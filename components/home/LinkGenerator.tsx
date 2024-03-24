@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select";
 import { Loader2 } from "lucide-react";
 import { FaCopy } from "react-icons/fa";
+import { isValidUrl } from "@/lib/utils";
 
 export const LinkGenerator = () => {
   const [user, setUser] = useState("");
@@ -48,6 +49,8 @@ export const LinkGenerator = () => {
           setLoading(false);
         }
       }
+    } else if (isValidUrl(url)) {
+      setError("This is not a valid GitHub repository")
     }
   }
 
@@ -94,7 +97,6 @@ export const LinkGenerator = () => {
               onClick={() => {
                 navigator.clipboard.writeText(`https://${process.env.NEXT_PUBLIC_URL}/api/frame/${user}/${repo}/${branch}`)
               }}
-
             >
               <FaCopy size={20}/>
             </Button>
