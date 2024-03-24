@@ -89,19 +89,19 @@ export const LinkGenerator = () => {
       {user && repo && branch && (
         <>
           <hr className="mt-6" />
-          <p className="flex items-center mt-8 rounded-lg font-bold p-3 bg-slate-800 text-white font">
+          <p className="flex items-center mt-8 rounded-lg font-bold p-3 bg-slate-800 text-white font text-sm">
             <Button
               size="icon"
               variant="ghost"
               className="mr-2"
               onClick={() => {
-                navigator.clipboard.writeText(`https://${process.env.NEXT_PUBLIC_URL}/api/frame/${user}/${repo}/${branch}`)
+                navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_URL}/api/frame/${user}/${repo}/${branch}`)
               }}
             >
               <FaCopy size={20}/>
             </Button>
 
-            https://{process.env.NEXT_PUBLIC_URL}/api/frame/{user}/{repo}/{branch}
+            {process.env.NEXT_PUBLIC_URL}/api/frame/{user}/{repo}/{branch}
           </p>
         </>
       )}
